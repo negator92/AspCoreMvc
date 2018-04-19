@@ -10,7 +10,31 @@ namespace PartyInvites.Controllers
 {
     public class HomeController : Controller
     {
-        public string Index()
-            => "Hello World";
+        public ViewResult Index()
+        {
+            ViewBag.Greeting = DateTime.Now.Hour < 12 ?
+                "Good morning" :
+                "Good afternoon";
+            return View("MyView");
+        }
+
+        [HttpGet]
+        public ViewResult RsvpForm()
+            => View();
+
+        [HttpPost]
+        public ViewResult RsvpForm(GuestResponse guestResponse)
+        {
+            if (ModelState.IsValid)
+            {
+                Repository.AddResponse((guestResponse));
+                return View("Thanks", guestResponse);
+            }
+            else
+                return View();
+        }
+
+        public ViewResult ListResponses()
+            => View(Repository.Responses.Where(response => response.WillAttend == true));
     }
 }
