@@ -9,15 +9,16 @@ namespace LanguageFeatures.Controllers
         // GET
         public ViewResult Index()
         {
-            List<string> results = new List<string>();
-            foreach (Product product in Product.GetProducts())
+            ShoppingCart cart = new ShoppingCart {Products = Product.GetProducts()};
+            Product[] productArray =
             {
-                string name = product?.Name;
-                decimal? price = product?.Price;
-                results.Add($"Name: {name}, Price: {price}");
-            }
-
-            return View(results);
+                new Product {Name = "Kayak", Price = 275M},
+                new Product {Name = "Lifejacket", Price = 48.95M},
+                new Product {Name = "Soccer ball", Price = 19.50M},
+                new Product {Name = "Corner flag", Price = 34.95M},
+            };
+            decimal arrayTotal = productArray.FilterByPrice(20).TotalPrices();
+            return View("Index", new[] {$"Array total: {arrayTotal:C2}"});
         }
     }
 }
