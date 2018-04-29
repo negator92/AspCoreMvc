@@ -1,5 +1,5 @@
-﻿using System;
-using System.Linq;
+﻿using System.Linq;
+using System.Threading.Tasks;
 using LanguageFeatures.Models;
 using Microsoft.AspNetCore.Mvc;
 
@@ -12,6 +12,16 @@ namespace LanguageFeatures.Controllers
 
         // GET
         public ViewResult Index()
-            => View(Product.GetProducts().Select(p => p?.Name));
+        {
+            var products = new[]
+            {
+                new {name = "Kayak", Price = 275M},
+                new {name = "Lifejacket", Price = 48.95M},
+                new {name = "Soccer ball", Price = 19.50M},
+                new {name = "Corner flag", Price = 34.95M},
+            };
+            return View(products.Select(p =>
+                $"{nameof(p.Name)}: {p.Name}, {nameof(p.Price)}: {p.Price}"));
+        }
     }
 }
