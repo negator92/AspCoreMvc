@@ -9,6 +9,9 @@ namespace WorkingWithVisualStudio.Models
 
         private Dictionary<string, Product> products = new Dictionary<string, Product>();
 
+        public static SimpleRepository SharedRepository
+            => sharedRepository;
+
         public SimpleRepository()
         {
             var initialItems = new[]
