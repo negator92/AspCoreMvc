@@ -6,7 +6,7 @@ namespace WorkingWithVisualStudio.Controllers
 {
     public class HomeController : Controller
     {
-        SimpleRepository Repository = SimpleRepository.SharedRepository;
+        public SimpleRepository Repository = SimpleRepository.SharedRepository;
 
         public IActionResult Index()
             => View(Repository.Products

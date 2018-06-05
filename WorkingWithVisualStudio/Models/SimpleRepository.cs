@@ -2,7 +2,7 @@
 
 namespace WorkingWithVisualStudio.Models
 {
-    public class SimpleRepository
+    public class SimpleRepository : IRepository
     {
         private static SimpleRepository sharedRepository
             => new SimpleRepository();
