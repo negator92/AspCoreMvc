@@ -18,7 +18,7 @@ namespace WorkingWithVisualStudio.Tests
         {
             var product = new Product {Name = "Test", Price = 100M};
             product.Price = 200M;
-            Assert.Equal(100M, product.Price);
+            Assert.Equal(200M, product.Price);
         }
     }
 }
