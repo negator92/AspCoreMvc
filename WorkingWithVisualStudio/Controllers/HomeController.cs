@@ -6,11 +6,11 @@ namespace WorkingWithVisualStudio.Controllers
 {
     public class HomeController : Controller
     {
-        public SimpleRepository Repository = SimpleRepository.SharedRepository;
+        public IRepository Repository = SimpleRepository.SharedRepository;
 
         public IActionResult Index()
             => View(Repository.Products
-                .Where(product => product?.Price < 50));
+                .Where(product => product.Price < 50));
 
         [HttpGet]
         public IActionResult AddProduct()

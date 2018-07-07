@@ -14,22 +14,22 @@ namespace WorkingWithVisualStudio.Models
 
         public SimpleRepository()
         {
-            var initialItems = new[]
+            Product[] initialItems = new[]
             {
                 new Product {Name = "Kayak", Price = 275M},
                 new Product {Name = "Lifejacket", Price = 48.95M},
                 new Product {Name = "Soccer ball", Price = 19.50M},
                 new Product {Name = "Corner flag", Price = 34.95M}
             };
-            foreach (var p in initialItems)
-                AddProduct(p);
+            foreach (Product product in initialItems)
+                AddProduct(product);
             products.Add("Error", null);
         }
 
         public IEnumerable<Product> Products
             => products.Values;
 
-        public void AddProduct(Product p)
-            => products.Add(p.Name, p);
+        public void AddProduct(Product product)
+            => products.Add(product.Name, product);
     }
 }
