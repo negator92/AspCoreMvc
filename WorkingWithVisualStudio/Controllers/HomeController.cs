@@ -9,8 +9,7 @@ namespace WorkingWithVisualStudio.Controllers
         public IRepository Repository = SimpleRepository.SharedRepository;
 
         public IActionResult Index()
-            => View(Repository.Products
-                .Where(product => product.Price < 50));
+            => View(Repository.Products);
 
         [HttpGet]
         public IActionResult AddProduct()
