@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using Microsoft.AspNetCore.Mvc;
+using Moq;
 using WorkingWithVisualStudio.Controllers;
 using WorkingWithVisualStudio.Models;
 using Xunit;
@@ -20,8 +21,9 @@ namespace WorkingWithVisualStudio.Tests
         public void IndexActionModelIsComplete(Product[] products)
         {
             //Arrange
-            HomeController controller = new HomeController();
-            controller.Repository = new ModelCompleteFakeRepository { Products = products };
+            Mock<IRepository> mock = new Mock<IRepository>();
+            mock.SetupGet(m => m.Products).Returns(products);
+            HomeController controller = new HomeController() { Repository = mock.Object };
 
             //Act
             IEnumerable<Product> model = (controller.Index() as ViewResult)?.ViewData.Model as IEnumerable<Product>;
@@ -53,15 +55,16 @@ namespace WorkingWithVisualStudio.Tests
         [Fact]
         public void RepositoryPropertyCalledOnce()
         {
-            //Arrange 
-            PropertyOnceFakeRepository repository = new PropertyOnceFakeRepository();
-            HomeController controller = new HomeController { Repository = repository };
+            //Arrange
+            Mock<IRepository> mock = new Mock<IRepository>();
+            mock.SetupGet(m => m.Products).Returns( new[] { new Product { Name = "P1", Price = 100}});
+            HomeController controller = new HomeController() { Repository = mock.Object };
 
             //Act
             IActionResult result = controller.Index();
 
             //Assert
-            Assert.Equal(1, repository.PropertyCounter);
+            mock.VerifyGet(m => m.Products, Times.Once);
         }
     }
 }
