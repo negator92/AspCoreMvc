@@ -12,6 +12,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WorkingWithVisualStudio", "
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WorkingWithVisualStudio.Tests", "WorkingWithVisualStudio.Tests\WorkingWithVisualStudio.Tests.csproj", "{47E14599-4DC8-48C2-AF8A-EA572FE1131E}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SportsStore", "SportsStore\SportsStore.csproj", "{3CB81690-EC91-4C2A-B40A-138992D11872}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -82,6 +84,18 @@ Global
 		{47E14599-4DC8-48C2-AF8A-EA572FE1131E}.Release|x64.Build.0 = Release|Any CPU
 		{47E14599-4DC8-48C2-AF8A-EA572FE1131E}.Release|x86.ActiveCfg = Release|Any CPU
 		{47E14599-4DC8-48C2-AF8A-EA572FE1131E}.Release|x86.Build.0 = Release|Any CPU
+		{3CB81690-EC91-4C2A-B40A-138992D11872}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3CB81690-EC91-4C2A-B40A-138992D11872}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3CB81690-EC91-4C2A-B40A-138992D11872}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{3CB81690-EC91-4C2A-B40A-138992D11872}.Debug|x64.Build.0 = Debug|Any CPU
+		{3CB81690-EC91-4C2A-B40A-138992D11872}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{3CB81690-EC91-4C2A-B40A-138992D11872}.Debug|x86.Build.0 = Debug|Any CPU
+		{3CB81690-EC91-4C2A-B40A-138992D11872}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3CB81690-EC91-4C2A-B40A-138992D11872}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3CB81690-EC91-4C2A-B40A-138992D11872}.Release|x64.ActiveCfg = Release|Any CPU
+		{3CB81690-EC91-4C2A-B40A-138992D11872}.Release|x64.Build.0 = Release|Any CPU
+		{3CB81690-EC91-4C2A-B40A-138992D11872}.Release|x86.ActiveCfg = Release|Any CPU
+		{3CB81690-EC91-4C2A-B40A-138992D11872}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
